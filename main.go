@@ -9,5 +9,5 @@ import (
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
-	controller.NewYearController().Run(scanner)
+	controller.CheckLeapYear(scanner)
 }

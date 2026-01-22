@@ -10,56 +10,42 @@ import (
 	"github.com/check-leap-year/view"
 )
 
-type YearController struct{}
+// type YearController struct{}
 
-func NewYearController() *YearController{
-	return &YearController{}
-}
-
-// func (c *YearController) CheckLeapYear(input string){
-// 	year, err := strconv.Atoi(input)
-// 	if err != nil {
-// 		fmt.Println("Year must be a number")
-// 		return
-// 	}
-
-// 	if err := model.ValidateYear(year); err != nil{
-// 		fmt.Println(err.Error())
-// 		return
-// 	}
-
-// 	if model.IsLeapYear(year){
-// 		fmt.Printf("%d is a leap year \n", year)
-// 	} else {
-// 		fmt.Printf("%d is a not a leap year \n", year)
-// 	}
+// func NewYearController() *YearController {
+// 	return &YearController{}
 // }
 
+// Chịu trách nhiệm điều phối
 
-func (c *YearController) Run(scanner *bufio.Scanner) {
-	fmt.Print("Enter a year: ")
+func CheckLeapYear(scanner *bufio.Scanner) {
+	for {
+		view.PromptYear()
 
-	if !scanner.Scan() {
-		view.ShowError(fmt.Errorf("cannot read input"))
+		if !scanner.Scan() {
+			view.ShowError(fmt.Errorf("cannot read input"))
+			return
+		}
+
+		input := strings.TrimSpace(scanner.Text())
+
+		year, err := strconv.Atoi(input)
+		if err != nil {
+			view.ShowError(fmt.Errorf("year must be a number"))
+			continue
+		}
+
+		if err := model.ValidateYear(year); err != nil {
+			view.ShowError(err)
+			continue
+		}
+
+		if model.IsLeapYear(year) {
+			view.ShowLeapYear(year)
+		} else {
+			view.ShowNotLeapYear(year)
+			continue
+		}
 		return
-	}
-
-	input := strings.TrimSpace(scanner.Text())
-
-	year, err := strconv.Atoi(input)
-	if err != nil {
-		view.ShowError(fmt.Errorf("year must be a number"))
-		return
-	}
-
-	if err := model.ValidateYear(year); err != nil {
-		view.ShowError(err)
-		return
-	}
-
-	if model.IsLeapYear(year) {
-		view.ShowLeapYear(year)
-	} else {
-		view.ShowNotLeapYear(year)
 	}
 }

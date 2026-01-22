@@ -6,7 +6,7 @@ import (
 
 func ValidateYear(year int) error {
 	if year <= 0 {
-		return fmt.Errorf("year must greater than 0")
+		return fmt.Errorf("year must greater than 0")	
 	}
 	return nil
 }

@@ -2,8 +2,6 @@ package view
 
 import "fmt"
 
-
-
 func ShowLeapYear(year int) {
 	fmt.Printf("%d is a leap year\n", year)
 }
@@ -14,4 +12,8 @@ func ShowNotLeapYear(year int) {
 
 func ShowError(err error) {
 	fmt.Println(err.Error())
+}
+
+func PromptYear() {
+    fmt.Print("Enter a year: ")
 }
