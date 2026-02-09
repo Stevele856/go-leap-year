@@ -49,3 +49,7 @@ func CheckLeapYear(scanner *bufio.Scanner) {
 		return
 	}
 }
+
+func CheckDateInWeek(){
+
+}
