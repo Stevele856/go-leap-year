@@ -1,4 +1,4 @@
-### Go Doomsday & Leap Year Checker
+# Go Doomsday & Leap Year Checker
 
 A lightweight CLI tool built with Golang to handle calendar-related logic, specifically determining leap years and calculating the day of the week for any date in history using the Doomsday Algorithm.
 
