@@ -1,5 +1,7 @@
 package model
 
+import "github.com/check-leap-year/types"
+
 // Hàm tính mốc thế kỷ
 func CenturyAnchor(year int) int {
 	century := year / 100
@@ -66,9 +68,9 @@ func MonthDoomsday(month int, leap bool) int {
 
 
 // Hàm chính để tính ngày trong tuần từ ngày, tháng, năm
-func WeekdayFromDate(d Date) int {
+func WeekdayFromDate(d *types.Date) int {
 	doomsday := DoomsdayOfYear(d.Year)
-	anchor := MonthDoomsday(d.Month, isLeapYear(d.Year))
+	anchor := MonthDoomsday(d.Month, types.IsLeapYear(d.Year))
 	delta := (d.Day - anchor) % 7
 	weekday := (doomsday + delta + 7) % 7
 	return weekday
