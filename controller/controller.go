@@ -88,6 +88,6 @@ func CheckDateInWeek(scanner *bufio.Scanner) {
 		}
 
 		weekday := model.WeekdayFromDate(date)
-		view.ShowWeekday(date, weekday)
+		view.ShowDay(date, weekday)
 	}
 }

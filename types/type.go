@@ -7,6 +7,7 @@ type Date struct {
 	Year  int
 }
 
+
 // Năm nhuận - IsLeapYear() là logic liên quan đến Date → nên ở types
 func IsLeapYear(year int) bool {
 	return year%400 == 0 || (year%4 == 0 && year%100 != 0)

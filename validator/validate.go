@@ -14,6 +14,13 @@ var (
 	ErrInvalidDate  = errors.New("invalid date for the given month and year")
 )
 
+func ValidateMenu(input int) error {
+	if input < 0 || input > 4 {
+		return fmt.Errorf("invalid menu, please choose again!")
+	}
+	return nil
+}
+
 func ValidateDate(d *types.Date) error {
 	if d.Year <= 0 {
 		return ErrInvalidYear
